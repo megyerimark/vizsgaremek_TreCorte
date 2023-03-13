@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('menus', function (Blueprint $table) {
-            table->id();
+            $table->id();
             $table->string("name");
-            $table->text("description");
-            $table->string("image");
-            $table->decimal("price" , 10 , 2);
+            $table->integer("guest_number");
+            $table->string("location");
+            $table->string("status")->default("available"); // Ha nem elérhető az asztal 
             $table->timestamps();
         });
     }

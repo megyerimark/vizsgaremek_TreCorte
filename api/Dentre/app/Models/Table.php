@@ -17,4 +17,8 @@ class Table extends Model
         'location'=>TableLocation::class
 
     ];
+     public function reservation(){
+
+        return $this->hasMany(Reservation::class);
+    }
 }
