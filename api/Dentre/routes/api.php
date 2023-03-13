@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,21 @@ use App\Http\Controllers\AdminController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+ 
+
+});
+//Authentikáció után sikeres berer token
+
+Route::group(['middleware'=>["auth:sanctum"]],function(){
+
+    Route::get("/categories",CategoryController::class, "index");
+   
+
+
 });
 
+//Regisztárció, belépés 
+Route::get("/st",CategoryController::class ,"store");
 
 Route::post("/register", [AdminController::class,"aregister"]);
 Route::post("/login", [AdminController::class,"alogin"]);
