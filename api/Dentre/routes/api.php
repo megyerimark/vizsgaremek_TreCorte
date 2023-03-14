@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController as Category;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\ReservationController;
 
 
 
@@ -29,11 +30,17 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
     Route::post("/menus-create",[MenuController::class, "create"]);
     Route::delete("/destroy/{id}", [MenuController::class, "destroy"])->name("destroy");
     Route::put("/menus/{id}",[MenuController::class,"update"])->name("update");
+
+
+    //Foglalások
+   Route::get("/reservations", [Reservationcontroller::class,"index"])->name("index");
+   Route::post("/reservations-create", [Reservationcontroller::class,"create"])->name("create");
+        
+    });
    
    
 
 
-});
 
 //Regisztárció, belépés 
 
