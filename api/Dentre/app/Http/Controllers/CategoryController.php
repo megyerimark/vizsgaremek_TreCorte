@@ -30,6 +30,7 @@ class CategoryController extends BaseController
         ]);
         return $cat;
     }
+    
     public function update(Request $request, $id)
     {
        $input = $request->all();

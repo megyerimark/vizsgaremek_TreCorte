@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController as Category;
+use App\Http\Controllers\MenuController;
 
 
 
@@ -21,6 +22,13 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
 
     Route::put("/categories/{id}",[Category::class,"update"])->name("update");
     Route::delete("/destroy/{id}", [Category::class, "destroy"])->name("destroy");
+
+
+    //Menük
+    Route::get("/menus",[MenuController::class, "index"]);
+    Route::post("/menus-create",[MenuController::class, "create"]);
+    Route::delete("/destroy/{id}", [MenuController::class, "destroy"])->name("destroy");
+    Route::put("/menus/{id}",[MenuController::class,"update"])->name("update");
    
    
 
