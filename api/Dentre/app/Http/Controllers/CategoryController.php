@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Http\Requests\CategoryStoreRequest;
 use Illuminate\Http\Request;
+use App\Http\Resources\CategoryResource;
 use Validator;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\BaseController as BaseController;
 
-class CategoryController extends Controller
+class CategoryController extends BaseController
 {
     public function index(){
         $categories = Category::all();
@@ -16,29 +18,34 @@ class CategoryController extends Controller
         return $categories;
     }
 
-    public function __invoke(CategoryStoreRequest $request)
+    public function create(Request $request)
     {
-        $input = $request->all();
-        $validator = Validator::make($input, [
-            "name"=>"required",
-          "description"=>"required",
-          "image"=>"required"
-        ]);
+       
     
-        if($validator->fails()){
-            return $this->sendError($validator, "hiba");
-        }
-    
-        $image = $request->file("image")->store('public/categories');
-        $in = Category::create([
+        $cat = Category::create([
             "name" => $request->name,
             "description" => $request->description,
-            "image" => $image
+            
 
         ]);
-        return $in;
+        return $cat;
     }
+    public function update(Request $request, $id)
+    {
+       $input = $request->all();
+       $validator = Validator::make( $input , [
+        "name"=>"required",
+        "description" =>"required"
+
+       ]);
+       if ($validator->fails() ){
+        return $this->sendError( $validator->errors() );
+     }
+     $category = Category::find($id);
+     $category->update($request->all());
+     return $this->sendResponse(  new CategoryResource( $category ), "Frissítve");
 
 
     
+}
 }
