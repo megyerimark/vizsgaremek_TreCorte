@@ -20,6 +20,7 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
     Route::post("/st",[Category::class ,"create"])->name("create");
 
     Route::put("/categories/{id}",[Category::class,"update"])->name("update");
+    Route::delete("/destroy/{id}", [Category::class, "destroy"])->name("destroy");
    
    
 

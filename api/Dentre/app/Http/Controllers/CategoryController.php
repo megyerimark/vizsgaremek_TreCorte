@@ -48,4 +48,10 @@ class CategoryController extends BaseController
 
     
 }
+
+public function destroy($id){
+    Category::destroy($id);
+
+    return $this->sendResponse( [], "Törölve");
+}
 }
