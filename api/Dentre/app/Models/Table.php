@@ -9,14 +9,10 @@ class Table extends Model
 {
     use HasFactory;
     protected $fillable =[
-        "name","guest_number",'status','location'
+        "table_name","guest_number",
     ];
 
-    protected $casts =[
-        "status"=>TableStatus::class,
-        'location'=>TableLocation::class
-
-    ];
+   
      public function reservation(){
 
         return $this->hasMany(Reservation::class);

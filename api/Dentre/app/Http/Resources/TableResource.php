@@ -17,7 +17,7 @@ class TableResource extends JsonResource
         //return parent::toArray($request);
         return [
             "id" => $this->id,
-            "name" => $this->name,
+            "table_name" => $this->name,
             "guest_number" => $this->guest_number,
         ];
     }
