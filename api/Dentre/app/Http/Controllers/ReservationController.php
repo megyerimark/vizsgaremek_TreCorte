@@ -73,6 +73,7 @@ class ReservationController extends BaseController
    
     public function destroy(string $id)
     {
-        //
+        Reservation::destroy($id);
+        return $this->sendResponse( [], "Törölve");
     }
 }

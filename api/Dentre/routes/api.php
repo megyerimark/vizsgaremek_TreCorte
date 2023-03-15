@@ -35,9 +35,15 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
    Route::get("/reservations", [Reservationcontroller::class,"index"])->name("index");
    Route::post("/reservations-create", [Reservationcontroller::class,"create"])->name("create");
    Route::put("/reservation/{id}",[ReservationController::class,"update"])->name("update");
-//Asztalok
+   Route::delete("/destroy/{id}", [ReservationController::class, "destroy"])->name("destroy");
 
-Route::post('d',[TableController::class,'store']);
+
+   //Asztalok
+   Route::post("/table-create", [TableController::class,"create"])->name("create");
+
+
+
+
 
 
 
