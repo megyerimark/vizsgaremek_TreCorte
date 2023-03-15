@@ -28,8 +28,6 @@ class ReservationController extends BaseController
     {
         $input = $request->all();
 
-        $input["color_id"] = Table::where('table', $input['table_id'])->first()->id;
-
         $validator = Validator::make($input,  [
             "name" =>"required",
             "first_name" => "required",
@@ -37,7 +35,6 @@ class ReservationController extends BaseController
             "email" => "required",
             "tel_number" =>"required",
             "res_date" => "required",
-            "table_id"=>"required",
             "guest_number"=>"required"
         ]);
         if($validator->fails() ){
@@ -45,7 +42,7 @@ class ReservationController extends BaseController
             return $this->sendError($validator->errors());
     }
     $reservation= Reservation::create($input);
-   return $this->sendResponse( new DragoReservationResource($reservation), "Siker báttya");
+   return $this->sendResponse( new ReservationResource($reservation), "Siker báttya");
 
     
     }

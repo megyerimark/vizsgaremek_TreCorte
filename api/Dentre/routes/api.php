@@ -6,8 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController as Category;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ReservationController;
-
-
+use App\Http\Controllers\TableController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -36,6 +35,13 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
    Route::get("/reservations", [Reservationcontroller::class,"index"])->name("index");
    Route::post("/reservations-create", [Reservationcontroller::class,"create"])->name("create");
         
+//Asztalok
+
+Route::post('d',[TableController::class,'store']);
+
+
+
+
     });
    
    
