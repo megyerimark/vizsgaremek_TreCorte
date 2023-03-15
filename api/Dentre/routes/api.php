@@ -13,11 +13,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  
 
 });
-//Authentikáció után sikeres berer token
+//Authentikáció után sikeres műveletek
 
 Route::group(['middleware'=>["auth:sanctum"]],function(){
 
-    Route::get("/categories",[Category::class, "index"]);
+   
     Route::post("/st",[Category::class ,"create"])->name("create");
 
     Route::put("/categories/{id}",[Category::class,"update"])->name("update");
@@ -25,14 +25,14 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
 
 
     //Menük
-    Route::get("/menus",[MenuController::class, "index"]);
+   
     Route::post("/menus-create",[MenuController::class, "create"]);
     Route::delete("/destroy/{id}", [MenuController::class, "destroy"])->name("destroy");
     Route::put("/menus/{id}",[MenuController::class,"update"])->name("update");
 
 
     //Foglalások
-   Route::get("/reservations", [Reservationcontroller::class,"index"])->name("index");
+  
    Route::post("/reservations-create", [Reservationcontroller::class,"create"])->name("create");
    Route::put("/reservation/{id}",[ReservationController::class,"update"])->name("update");
    Route::delete("/destroy/{id}", [ReservationController::class, "destroy"])->name("destroy");
@@ -40,12 +40,8 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
 
    //Asztalok
    Route::post("/table-create", [TableController::class,"create"])->name("create");
-
-
-
-
-
-
+   Route::put("/table/{id}",[TableController::class,"update"])->name("update");
+   Route::delete("/destroy/{id}", [TableController::class, "destroy"])->name("destroy");
 
 
     });
@@ -54,8 +50,13 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
 
 
 
-//Regisztárció, belépés 
-
+//Regisztárció, belépés  , nem védett útvonal
 
 Route::post("/register", [AdminController::class,"aregister"]);
 Route::post("/login", [AdminController::class,"alogin"]);
+
+//Nem védett útvonalak user számára
+Route::get("/categories",[Category::class, "index"])->name("index");
+Route::get("/menus",[MenuController::class, "index"])->name("index");
+Route::get("/reservations", [Reservationcontroller::class,"index"])->name("index");
+Route::get("/tables", [TableController::class, "index"])->name("index");

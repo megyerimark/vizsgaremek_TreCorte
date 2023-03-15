@@ -24,7 +24,7 @@ class TableController extends BaseController
         $input = $request->all();
 
         $validator = Validator::make($input,  [
-           "name"=>"required",
+           "table_name"=>"required",
             "guest_number"=>"required"
         ]);
         if($validator->fails() ){
@@ -34,6 +34,29 @@ class TableController extends BaseController
     $table= Table::create($input);
    return $this->sendResponse( new TableResource($table), "Sikeres");
 
+    }
+
+    public function update(Request $request ,$id){
+
+        
+        $input = $request->all();
+        $validator = Validator::make( $input , [
+            "table_name"=>"required",
+            "guest_number"=>"required"
+        ]);
+        if ($validator->fails() ){
+         return $this->sendError( $validator->errors() );
+      }
+      $table = Table::find($id);
+      $table->update($request->all());
+      return $this->sendResponse(  new TableResource( $table ), "Frissítve");
+ 
+    }
+
+    public function destroy($id){
+
+        Table::destroy($id);
+        return $this->sendResponse( [], "Törölve");
     }
 }
 
