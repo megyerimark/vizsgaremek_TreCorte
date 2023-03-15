@@ -34,7 +34,7 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
     //Foglalások
    Route::get("/reservations", [Reservationcontroller::class,"index"])->name("index");
    Route::post("/reservations-create", [Reservationcontroller::class,"create"])->name("create");
-        
+   Route::put("/reservation/{id}",[ReservationController::class,"update"])->name("update");
 //Asztalok
 
 Route::post('d',[TableController::class,'store']);

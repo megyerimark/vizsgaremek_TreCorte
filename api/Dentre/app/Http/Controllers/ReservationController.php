@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController as BaseController;
 use Validator;
 use App\Models\Reservation;
-use App\Models\Table;
 use App\Http\Resources\ReservationResource;
 
 class ReservationController extends BaseController
@@ -29,7 +28,6 @@ class ReservationController extends BaseController
         $input = $request->all();
 
         $validator = Validator::make($input,  [
-            "name" =>"required",
             "first_name" => "required",
             "last_name" => "required",
             "email" => "required",
@@ -48,20 +46,28 @@ class ReservationController extends BaseController
     }
 
    
-    public function show(string $id)
-    {
-        //
-    }
+ 
 
-  
-    public function edit(string $id)
-    {
-        //
-    }
 
     public function update(Request $request, string $id)
     {
-        //
+        
+        $input = $request->all();
+        $validator = Validator::make( $input , [
+            "first_name" => "required",
+            "last_name" => "required",
+            "email" => "required",
+            "tel_number" =>"required",
+            "res_date" => "required",
+            "guest_number"=>"required"
+        ]);
+        if ($validator->fails() ){
+         return $this->sendError( $validator->errors() );
+      }
+      $res = Reservation::find($id);
+      $res->update($request->all());
+      return $this->sendResponse(  new ReservationResource( $res ), "Frissítve");
+ 
     }
 
    
