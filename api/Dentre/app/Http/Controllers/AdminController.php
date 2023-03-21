@@ -18,7 +18,7 @@ class AdminController extends Basecontroller
             $success["name"] = $authUser->name;
             return $this->sendResponse($success, "Sikeres bejelentkezés.");
         }
-        else 
+        else
         {
           return $this->sendError("Unauthorizd.".["error" => "Hibás adatok"], 401);
         }
@@ -27,7 +27,7 @@ class AdminController extends Basecontroller
 
     public function aregister(Request $request)
     {
-        $validator = Validator::make($request->all(), 
+        $validator = Validator::make($request->all(),
         [
             "name" => "required",
             "email" => "required",
@@ -35,7 +35,7 @@ class AdminController extends Basecontroller
             "confirm_password" => "required|same:password"
         ]);
 
-        if($validator->fails()) 
+        if($validator->fails())
         {
             return $this->sendError("Error validation", $validator->errors() );
         }
@@ -46,5 +46,11 @@ class AdminController extends Basecontroller
         $success ["name"] = $user->name;
         return $this->sendResponse($success, "Sikeres regisztráció.");
 
+    }
+    public function logout(Request $request){
+
+        auth("sanctum")->user()->currentAccessToken()->delete();
+
+        return response()->json("Sikeres kijelentkezés");
     }
 }
