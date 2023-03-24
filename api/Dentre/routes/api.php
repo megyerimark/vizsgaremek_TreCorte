@@ -35,7 +35,6 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
 
     //Foglalások
     Route::get("/reservations", [Reservationcontroller::class,"index"])->name("index");
-   Route::post("/reservations-create", [Reservationcontroller::class,"create"])->name("create");
    Route::put("/reservation/{id}",[ReservationController::class,"update"])->name("update");
    Route::delete("/destroy/{id}", [ReservationController::class, "destroy"])->name("destroy");
 
@@ -65,9 +64,11 @@ Route::post("/login", [AdminController::class,"alogin"]);
 //Nem védett útvonalak user számára
 Route::get("/categories",[Category::class, "index"])->name("index");
 Route::get("/menus",[MenuController::class, "index"])->name("index");
+Route::post("/reservations-create", [Reservationcontroller::class,"create"])->name("create");
 
 Route::get("/tables", [TableController::class, "index"])->name("index");
 
 
 
 Route::post("/logout", [AdminController::class,"logout"]);
+Route::post("/userlogout", [UserController::class,"logout"]);

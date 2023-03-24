@@ -32,4 +32,10 @@ class UsersController extends Basecontroller
         return $this->sendResponse($success, "Sikeres regisztráció.");
 
     }
+    public function logout(Request $request){
+
+        auth("sanctum")->user()->currentAccessToken()->delete();
+
+        return response()->json("Sikeres kijelentkezés");
+    }
 }
