@@ -18,7 +18,6 @@ constructor(
   private auth: Adminauthsercive,
   private formBuilder: FormBuilder,
   private router: Router,
-  private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
