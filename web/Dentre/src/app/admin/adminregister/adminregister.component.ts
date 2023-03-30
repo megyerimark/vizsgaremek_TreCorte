@@ -19,6 +19,7 @@ export class AdminregisterComponent {
     private auth: Adminauthsercive,
     private formBuilder: FormBuilder,
     private router: Router,
+
   ) { }
 
   ngOnInit(): void {
@@ -38,15 +39,18 @@ export class AdminregisterComponent {
 
     this.auth.register( name, email,password,confirm_password).subscribe({
        next : data =>{
-       // this.toastr.success("Sikeres regisztrálás")
-       alert('siker')
+
+
         localStorage.setItem('newAuthData', JSON.stringify(data));
         this.router.navigate(['admin/login']);
+        alert("sikeres regisztráció");
        },
 
        error: err => {
-        //this.toastr.error('Hiba! A regisztrálás sikertelen!');
-        alert("sikertelen");
+        alert("sikertelen regisztráció");
+
+
+
       }
     });
   }
