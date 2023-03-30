@@ -24,7 +24,7 @@ export class Adminauthsercive {
     let httpOption = {
       headers:headers
     };
-    let endpoint  = "adminLog";
+    let endpoint  = "login";
     let url = this.host+ endpoint;
     return this.http.post<any>(url,data,httpOption);
   }
@@ -44,7 +44,7 @@ export class Adminauthsercive {
     const httpOption= {
       headers:httpHeaders
     }
-    let endpoint = "adminReg";
+    let endpoint = "register";
     let url = this.host  + endpoint;
     return this.http.post<any>(url,regdata,httpOption)
   }
@@ -63,7 +63,7 @@ export class Adminauthsercive {
     let httpOption = {
       headers:headers
     };
-    let endpoint = "logoutAdmin";
+    let endpoint = "logout";
     let url = this.host + endpoint;
     return this.http.post<any>(url, data, httpOption);
   }

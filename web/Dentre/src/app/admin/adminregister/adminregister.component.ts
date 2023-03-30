@@ -38,13 +38,15 @@ export class AdminregisterComponent {
 
     this.auth.register( name, email,password,confirm_password).subscribe({
        next : data =>{
-        this.toastr.success("Sikeres regisztrálás")
+       // this.toastr.success("Sikeres regisztrálás")
+       alert('siker')
         localStorage.setItem('newAuthData', JSON.stringify(data));
         this.router.navigate(['admin/login']);
        },
 
        error: err => {
-        this.toastr.error('Hiba! A regisztrálás sikertelen!');
+        //this.toastr.error('Hiba! A regisztrálás sikertelen!');
+        alert("sikertelen");
       }
     });
   }

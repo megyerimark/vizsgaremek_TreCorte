@@ -35,10 +35,12 @@ constructor(
         next: data =>{
           if(data.success){
             localStorage.setItem('currentUser', JSON.stringify({token: data.data.token, name: data.data.name}));
-            this.router.navigate(['admin/index']);
-            this.toastr.success('Sikeres bejelentkezés')
+           // this.router.navigate(['admin/index']);
+           // this.toastr.success('Sikeres bejelentkezés')
+           alert('siker')
           }else{
-            this.toastr.error("Sikertelen bejelentkezés");
+           // this.toastr.error("Sikertelen bejelentkezés");
+           alert("sikertelen");
           }
         }
       });
