@@ -25,9 +25,15 @@ class CategoryController extends BaseController
         $cat = Category::create([
             "name" => $request->name,
             "description" => $request->description,
+            "image"=>$request->image,
             
 
         ]);
+        if(!$request->hasFile('image') && !$request->file('image')->isValid()){
+            return response()->json('{"error":" please add image"}');
+        }
+            $name = $request->file("image")->getClientOriginalName();
+            $path = $request->file('image')->storeAs('public/images', $name);
         return $cat;
     }
     

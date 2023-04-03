@@ -33,7 +33,8 @@ class ReservationController extends BaseController
             "email" => "required",
             "tel_number" =>"required",
             "res_date" => "required",
-            "guest_number"=>"required"
+            "guest_number"=>"required",
+           
         ]);
         if($validator->fails() ){
 
