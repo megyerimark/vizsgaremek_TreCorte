@@ -13,10 +13,7 @@ class Menu extends Model
         "price",
         "description",
         "image"
-        
+
     ];
 
-    public function categories(){
-        return $this->belongsToMany(Category::class,'category_menu');
-    }
 }

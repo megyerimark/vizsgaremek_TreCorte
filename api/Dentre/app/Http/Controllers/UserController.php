@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Models\Admin;
+// namespace App\Http\Controllers;
+// use App\Models\Admin;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
-class UserController extends Controller
-{
+// class UserController extends Controller
+// {
 
-    public function index(){
+//     public function index(){
 
-        $users = Admin::all();
+//         $users = Admin::all();
 
-        return $users;
-    }
-}
+//         return $users;
+//     }
+// }
