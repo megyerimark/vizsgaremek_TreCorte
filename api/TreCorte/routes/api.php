@@ -13,7 +13,7 @@ use App\Http\Controllers\UserController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 
- 
+
 });
 //Authentikáció után sikeres műveletek
 
@@ -57,7 +57,7 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
 //Regisztárció, belépés  , nem védett útvonal
 
 Route::post("/register", [AdminController::class,"aregister"]);
-Route::post("/userreg", [UsersController::class,"userreg"]);
+// Route::post("/userreg", [UsersController::class,"userreg"]);
 Route::post("/login", [AdminController::class,"alogin"]);
 
 

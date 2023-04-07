@@ -12,12 +12,13 @@ class Menu extends Model
         "name",
         "price",
         "description",
-        "image"
+        "image",
+        "category_id"
 
     ];
 
     public function categories(){
-        return $this->hasMany(Category::class,'category_menu');
+        return $this->belongsTo(Category::class,'category_id');
     }
 
 }

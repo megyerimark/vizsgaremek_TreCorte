@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController as BaseController;
 use App\Http\Resources\MenuResource;
 use App\Models\Menu;
+use App\Models\Category;
 
 use Validator;
 class MenuController extends BaseController
 {
-   
+
     public function index()
     {
         $menus = Menu::all();
@@ -19,15 +20,23 @@ class MenuController extends BaseController
 
     public function create( Request $request){
 
+
+
+        $input = $request->all();
+        $input['category_id'] = Category::where('id', $input['category_id'])->first()->id;
+
+
+
         $menus = Menu::create([
             "name" => $request->name,
             "price" => $request->price,
             "description" => $request->description,
             "image"=>$request->image,
-            
+            "category_id"=>$request->category_id,
+
 
         ]);
-        if(!$request->hasFile('image') && !$request->file('image')->isValid()){
+        if(!$request->hasFile('image') || !$request->file('image')->isValid()){
             return response()->json('{"error":Kérlek tölts fel képet is !"}');
         }
             $name = $request->file("image")->getClientOriginalName();
@@ -43,16 +52,16 @@ class MenuController extends BaseController
 
     public function update(Request $request,  $id)
     {
-       
+
         $input = $request->all();
         $validator = Validator::make( $input , [
          "name"=>"required",
          "description" =>"required",
          "price"=>'required',
         //  "image"=>'required'
- 
+
         ]);
-        
+
 
         if ($validator->fails() ){
          return $this->sendError( $validator->errors() );
@@ -77,7 +86,7 @@ class MenuController extends BaseController
     $menus->update($request->all());
     return $this->sendResponse(  new MenuResource( $menus ), "Frissítve");
 
- 
+
     }
 
 

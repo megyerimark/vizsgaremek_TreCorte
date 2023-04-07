@@ -20,13 +20,14 @@ class CategoryController extends BaseController
 
     public function create(Request $request)
     {
-       
-    
+
+
+
         $cat = Category::create([
             "name" => $request->name,
             "description" => $request->description,
             "image"=>$request->image,
-            
+
 
         ]);
         if(!$request->hasFile('image') && !$request->file('image')->isValid()){
@@ -36,7 +37,7 @@ class CategoryController extends BaseController
             $path = $request->file('image')->storeAs('public/images', $name);
         return $cat;
     }
-    
+
     public function update(Request $request, $id)
     {
        $input = $request->all();
@@ -53,7 +54,7 @@ class CategoryController extends BaseController
      return $this->sendResponse(  new CategoryResource( $category ), "Frissítve");
 
 
-    
+
 }
 
 public function destroy($id){
