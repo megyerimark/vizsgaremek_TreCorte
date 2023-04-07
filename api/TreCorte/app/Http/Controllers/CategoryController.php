@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Http\Requests\CategoryStoreRequest;
 use Illuminate\Http\Request;
 use App\Http\Resources\CategoryResource;
 use Validator;
@@ -63,10 +62,14 @@ class CategoryController extends BaseController
 
 
 }
+public function destroy(Request $request,$id)
+{
+    $category = Category::find( $id);
 
-public function destroy($id){
-    Category::destroy($id);
+    $category->delete();
 
-    return $this->sendResponse( [], "Törölve");
+
+
 }
+
 }

@@ -97,10 +97,11 @@ class MenuController extends BaseController
 
 
 
-   public function destroy(string $id)
-    {
-        Menu::destroy($id);
-        return $this->sendResponse( [], "Törölve");
+    public function destroy(Request $request ,$id){
+        $menu = Menu::find($id);
+        $menu->delete();
+
+        return $this->sendResponse(  new Menuresource( $$menu ), "Törölve");
     }
 
 
