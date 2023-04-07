@@ -11,6 +11,10 @@ class Table extends Model
     protected $fillable =[
         "table_name","guest_number",
     ];
+    public function reservation(){
 
-   
+        return $this->hasMany(Reservation::class);
+    }
+
+
 }

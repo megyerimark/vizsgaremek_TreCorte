@@ -16,4 +16,8 @@ class Menu extends Model
 
     ];
 
+    public function categories(){
+        return $this->hasMany(Category::class,'category_menu');
+    }
+
 }
