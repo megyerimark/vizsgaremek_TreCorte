@@ -20,23 +20,30 @@ class CategoryController extends BaseController
 
     public function create(Request $request)
     {
+        $input = $request->all();
+
+        $validator = Validator::make($input, [
+            "name"=>"required",
+            "image"=>"required",
+            "description"=>"required",
+        ]);
 
 
+        if(!$request->hasFile('image') && !$request->file('image')->isValid()){
+            return $this->sendResponse(  new CategoryResource( $category ), "Sikeres felvétel");
+        }
+            $name = $request->file("image")->getClientOriginalName();
+          $path = $request->file('image')->storeAs('public/images', $name);
 
-        $cat = Category::create([
+          $input = Category::create([
             "name" => $request->name,
             "description" => $request->description,
-            "image"=>$request->image,
+            "image"=>$name
 
 
         ]);
-        if(!$request->hasFile('image') && !$request->file('image')->isValid()){
-            return response()->json('{"error":" please add image"}');
+
         }
-            $name = $request->file("image")->getClientOriginalName();
-            $path = $request->file('image')->storeAs('public/images', $name);
-        return $cat;
-    }
 
     public function update(Request $request, $id)
     {

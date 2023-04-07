@@ -59,6 +59,7 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
 Route::post("/register", [AdminController::class,"aregister"]);
 // Route::post("/userreg", [UsersController::class,"userreg"]);
 Route::post("/login", [AdminController::class,"alogin"]);
+Route::post("/logout", [AdminController::class,"logout"]);
 
 
 //Nem védett útvonalak user számára
@@ -70,5 +71,5 @@ Route::get("/tables", [TableController::class, "index"])->name("index");
 
 
 
-Route::post("/logout", [AdminController::class,"logout"]);
-Route::post("/userlogout", [UserController::class,"logout"]);
+
+// Route::post("/userlogout", [UserController::class,"logout"]);
