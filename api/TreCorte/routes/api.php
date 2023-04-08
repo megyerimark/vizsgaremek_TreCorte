@@ -28,7 +28,7 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
 
     //Menük
 
-    Route::post("/menus-create",[MenuController::class, "create"]);
+    Route::post("/menuscreate",[MenuController::class, "create"]);
     Route::delete("/destroyMenus/{id}", [MenuController::class, "destroy"]);
     Route::put("/menus/{id}",[MenuController::class,"update"])->name("update");
 

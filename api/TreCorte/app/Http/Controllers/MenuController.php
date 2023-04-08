@@ -37,11 +37,20 @@ class MenuController extends BaseController
 
         ]);
         if(!$request->hasFile('image') || !$request->file('image')->isValid()){
-            return response()->json('{"error":Kérlek tölts fel képet is !"}');
+            return $this->sendResponse(  new MenuResource( $menus ), "Sikeres felvétel");
         }
             $name = $request->file("image")->getClientOriginalName();
-            $path = $request->file('image')->storeAs('public/images', $name);
-        return $menus;
+          $path = $request->file('image')->storeAs('public/images', $name);
+
+          $input = Menu::create([
+            "name" => $request->name,
+            "description" => $request->description,
+            "image"=>$name,
+            "price"=>$request->price,
+            "category_id"=>$request->category_id,
+
+
+        ]);
 
     }
 
