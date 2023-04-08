@@ -27,17 +27,18 @@ class MenuController extends BaseController
 
 
 
-        $menus = Menu::create([
-            "name" => $request->name,
-            "price" => $request->price,
-            "description" => $request->description,
-            "image"=>$request->image,
-            "category_id"=>$request->category_id,
 
-
+        $validator = Validator::make($input, [
+            "name"=>"required",
+            "image"=>"required",
+            "description"=>"required",
+            "category_id"=>"required",
+            "price"=>"required",
         ]);
-        if(!$request->hasFile('image') || !$request->file('image')->isValid()){
-            return $this->sendResponse(  new MenuResource( $menus ), "Sikeres felvétel");
+
+
+       if(!$request->hasFile('image') || !$request->file('image')->isValid()){
+            return $this->sendResponse(  new MenuResource( $menu ), "Sikeres felvétel");
         }
             $name = $request->file("image")->getClientOriginalName();
           $path = $request->file('image')->storeAs('public/images', $name);
