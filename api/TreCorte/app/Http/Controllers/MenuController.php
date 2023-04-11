@@ -47,36 +47,44 @@ class MenuController extends BaseController
 
 
 
+    public function update(Request $request,  $id)
+    {
 
-// public function update(Request $request, $id)
-// {
-//     $input = $request->all();
-//     $validator = Validator::make($input, [
-//         "name" => "required",
-//         "description" => "required",
-//         "price" => "required",
-//         "image" => "required"
-//     ]);
+        $input = $request->all();
+        $validator = Validator::make( $input , [
+         "name"=>"required",
+         "description" =>"required",
+         "price"=>'required',
+        //  "image"=>'required'
 
-//     if ($validator->fails()) {
-//         return $this->sendError($validator->errors());
-//     }
+        ]);
 
-//     $menus = Menu::find($id);
 
-//     if ($request->hasFile('image')) {
-//         Storage::delete($menus->image);
-//         $image = $request->file('image')->store('public/images');
-//         $menus->image = $image;
-//     }
+        if ($validator->fails() ){
+         return $this->sendError( $validator->errors() );
+      }
 
-//     $menus->name = $request->name;
-//     $menus->description = $request->description;
-//     $menus->price = $request->price;
-//     $menus->save();
 
-//     return $this->sendResponse(new MenuResource($menus), "Frissítve");
-// }
+      //$image = $menus->image;
+
+    //   if($request->hasFile('image')){
+    //     Storage::delete($menus->image);
+    //   $image = $request->file("image")->store('public/images', $name);
+    //   }
+    //   $menu->update([
+    //       "name"=> $request->name,
+    //       "description"=> $request->description,
+    //       "price"=>$request->price,
+        //    "image"=>$image
+    //]);
+
+
+    $menus = Menu::find($id);
+    $menus->update($request->all());
+    return $this->sendResponse(  new MenuResource( $menus ), "Frissítve");
+
+
+    }
 
 
 
