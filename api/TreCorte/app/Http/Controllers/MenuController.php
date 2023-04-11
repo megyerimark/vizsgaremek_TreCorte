@@ -19,11 +19,27 @@ class MenuController extends BaseController
     }
 
     public function create( Request $request){
-
-
-
         $input = $request->all();
-        $input['category_id'] = Category::where('id', $input['category_id'])->first()->id;
+        $input["category_id"] = Category::where('name', $input['category_id'])->first()->id;
+
+
+
+
+
+// $category = Category::where('name', $input['category_name'])->first();
+// if ($category) {
+//     $input['category_id'] = $category->id;
+//     unset($input['category_name']);
+// } else {
+//     return response()->json(['error' => 'Invalid category name'], 400);
+// }
+
+// $menu = Menu::create($input);
+// return $this->sendResponse(new MenuResource($menu), 'Sikeres felvétel');
+
+
+        // $input = $request->all();
+        // $input['category_id'] = Category::where('name', $input['category_id'])->first()->id;
 
 
 
@@ -37,21 +53,13 @@ class MenuController extends BaseController
         ]);
 
 
+
+
        if(!$request->hasFile('image') || !$request->file('image')->isValid()){
             return $this->sendResponse(  new MenuResource( $menu ), "Sikeres felvétel");
         }
             $name = $request->file("image")->getClientOriginalName();
           $path = $request->file('image')->storeAs('public/images', $name);
-
-          $input = Menu::create([
-            "name" => $request->name,
-            "description" => $request->description,
-            "image"=>$name,
-            "price"=>$request->price,
-            "category_id"=>$request->category_id,
-
-
-        ]);
 
     }
 
