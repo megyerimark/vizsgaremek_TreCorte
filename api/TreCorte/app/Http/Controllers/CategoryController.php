@@ -67,8 +67,8 @@ public function destroy(Request $request, $id)
     $category = Category::find($id);
 
     // Tárolt kép törlése, ha van
-    if(Storage::exists('public/'.$category->image)){
-        Storage::delete('public'.$category->image);
+    if(Storage::exists('public/images/'.$category->image)){
+        Storage::delete('public/images/'.$category->image);
     }
 
     $category->delete();

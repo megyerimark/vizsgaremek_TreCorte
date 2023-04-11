@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController as BaseController;
 use App\Http\Resources\MenuResource;
 use App\Models\Menu;
+use DB;
 use App\Models\Category;
 
 use Validator;
@@ -14,7 +15,9 @@ class MenuController extends BaseController
 
     public function index()
     {
-        $menus = Menu::all();
+
+       // $menus = Menu::all();
+        $menus = DB::select('SELECT menus.*, categories.name as "elnevez" FROM menus INNER JOIN categories ON categories.id = menus.category_id');
         return $menus;
     }
 
@@ -38,7 +41,7 @@ class MenuController extends BaseController
         }
             $name = $request->file("image")->getClientOriginalName();
 
-            $path = $request->file('image')->storeAs('public/images');
+            $path = $request->file('image')->storeAs('public/images/');
             $input["image"] = $name;
             $input= Menu::create($input);
 
