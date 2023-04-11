@@ -62,14 +62,18 @@ class CategoryController extends BaseController
 
 
 }
-public function destroy(Request $request,$id)
+public function destroy(Request $request, $id)
 {
-    $category = Category::find( $id);
+    $category = Category::find($id);
+
+    // Tárolt kép törlése, ha van
+    if(Storage::exists('public/'.$category->image)){
+        Storage::delete('public'.$category->image);
+    }
 
     $category->delete();
 
-
-
+    return response()->json(['message' => 'Kategória törölve.']);
 }
 
 }

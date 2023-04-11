@@ -1,62 +1,62 @@
 <?php
 
-namespace App\Http\Controllers;
+// namespace App\Http\Controllers;
 
-use App\Http\Resources\TableResource;
-use App\Models\Table;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\BaseController as BaseController;
-use Validator;
+// use App\Http\Resources\TableResource;
+// use App\Models\Table;
+// use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Auth;
+// use App\Http\Controllers\BaseController as BaseController;
+// use Validator;
 
-class TableController extends BaseController
-{
- 
-  
-    public function index(){
-        $tables = Table::all();
-        return $tables;
-    }
+// class TableController extends BaseController
+// {
 
 
-    public function create(Request $request){
+//     public function index(){
+//         $tables = Table::all();
+//         return $tables;
+//     }
 
-        $input = $request->all();
 
-        $validator = Validator::make($input,  [
-           "table_name"=>"required",
-            "guest_number"=>"required"
-        ]);
-        if($validator->fails() ){
+//     public function create(Request $request){
 
-            return $this->sendError($validator->errors());
-    }
-    $table= Table::create($input);
-   return $this->sendResponse( new TableResource($table), "Sikeres");
+//         $input = $request->all();
 
-    }
+//         $validator = Validator::make($input,  [
+//            "table_name"=>"required",
+//             "guest_number"=>"required"
+//         ]);
+//         if($validator->fails() ){
 
-    public function update(Request $request ,$id){
+//             return $this->sendError($validator->errors());
+//     }
+//     $table= Table::create($input);
+//    return $this->sendResponse( new TableResource($table), "Sikeres");
 
-        
-        $input = $request->all();
-        $validator = Validator::make( $input , [
-            "table_name"=>"required",
-            "guest_number"=>"required"
-        ]);
-        if ($validator->fails() ){
-         return $this->sendError( $validator->errors() );
-      }
-      $table = Table::find($id);
-      $table->update($request->all());
-      return $this->sendResponse(  new TableResource( $table ), "Frissítve");
- 
-    }
+//     }
 
-    public function destroy($id){
+//     public function update(Request $request ,$id){
 
-        Table::destroy($id);
-        return $this->sendResponse( [], "Törölve");
-    }
-}
+
+//         $input = $request->all();
+//         $validator = Validator::make( $input , [
+//             "table_name"=>"required",
+//             "guest_number"=>"required"
+//         ]);
+//         if ($validator->fails() ){
+//          return $this->sendError( $validator->errors() );
+//       }
+//       $table = Table::find($id);
+//       $table->update($request->all());
+//       return $this->sendResponse(  new TableResource( $table ), "Frissítve");
+
+//     }
+
+//     public function destroy($id){
+
+//         Table::destroy($id);
+//         return $this->sendResponse( [], "Törölve");
+//     }
+//}
 

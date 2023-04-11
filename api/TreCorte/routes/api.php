@@ -39,10 +39,10 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
    Route::delete("/destroyReservation/{id}", [ReservationController::class, "destroy"])->name("destroy");
 
 
-   //Asztalok
-   Route::post("/table-create", [TableController::class,"create"])->name("create");
-   Route::put("/table/{id}",[TableController::class,"update"])->name("update");
-   Route::delete("/destroytable/{id}", [TableController::class, "destroy"])->name("destroy");
+//    //Asztalok
+//    Route::post("/table-create", [TableController::class,"create"])->name("create");
+//    Route::put("/table/{id}",[TableController::class,"update"])->name("update");
+//    Route::delete("/destroytable/{id}", [TableController::class, "destroy"])->name("destroy");
 
 
    //admins
@@ -67,7 +67,7 @@ Route::get("/categories",[CategoryController::class, "index"])->name("index");
 Route::get("/menus",[MenuController::class, "index"])->name("index");
 Route::post("/reservations-create", [Reservationcontroller::class,"create"])->name("create");
 
-Route::get("/tables", [TableController::class, "index"])->name("index");
+//Route::get("/tables", [TableController::class, "index"])->name("index");
 
 
 
