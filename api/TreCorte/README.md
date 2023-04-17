@@ -19,3 +19,12 @@ a vendégek számára a zökkenőmentes adminisztrációs munkákat.
 
 ## A projekt kezdéséhez szükségünk lesz magára a projektre itt elérhető:
 [TreCorte](https://github.com/megyerimark/vizsgaremek_TreCorte).  Itt elérhető! 
+
+A projekt futtatásához szükség lesz a NodeJS-re, mivel használnunk kell az npm telepítőcsomagot.
+
+* npm
+```
+https://nodejs.org/en/
+npm install npm@latest -g
+
+```
