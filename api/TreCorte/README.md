@@ -40,9 +40,7 @@ https://git-scm.com/downloads
 # A projekt használatba vétele
  > Ha van total commandered akkor állj abba a mappába ahova szerenéd, hogy a projekt létrejöjjön .
  > ha nincs total commandered, akkor az alábbi linre kattintva letöltheted 
- 
-```
-https://www.ghisler.com/download.htm
+[Total Commander dowload link ](https://www.ghisler.com/download.htm)
 
-```
+
 
