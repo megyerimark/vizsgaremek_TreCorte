@@ -55,7 +55,7 @@ npm install
 
 ```
 
-https://mail.google.com/mail/u/0/#sent/KtbxLvGzdMvrCKwGDNsVwfVBXQgVvVLLKL?projector=1&messagePartId=0.1
-
+https://docs.google.com/document/d/1aMxy3naO2d3JHgLXE50FLX0P28Z9g1Ev3NpKFfmGiCg/edit
+```
 
 
