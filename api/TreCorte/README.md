@@ -30,10 +30,19 @@ https://nodejs.org/en/
 npm install npm@latest -g
 ```
 
-Szükségünk lesz egy github fiókra , hogy le tudjuk klónozni vagy tölteni a .zip filet.
+Szükségünk lesz egy git parancsra  , hogy le tudjuk klónozni vagy tölteni a .zip filet.
 *git letöltése 
 ```
 https://git-scm.com/downloads
 ```
 
+
+# A projekt használatba vétele
+ > Ha van total commandered akkor állj abba a mappába ahova szerenéd, hogy a projekt létrejöjjön .
+ > ha nincs total commandered, akkor az alábbi linre kattintva letöltheted 
+ 
+```
+https://www.ghisler.com/download.htm
+
+```
 
