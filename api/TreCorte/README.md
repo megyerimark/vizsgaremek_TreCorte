@@ -38,9 +38,24 @@ https://git-scm.com/downloads
 
 
 # A projekt használatba vétele
- > Ha van total commandered akkor állj abba a mappába ahova szerenéd, hogy a projekt létrejöjjön .
- > ha nincs total commandered, akkor az alábbi linre kattintva letöltheted 
-[Total Commander dowload link ](https://www.ghisler.com/download.htm)
+ > Ha van total commandered akkor állj abba a mappába ahova szerenéd, hogy a projekt létrejöjjön.
+ > Ha viszont nem rendelkezel  Total Commanderrel  akkor az alábbi linre kattintva letöltheted 
+[Total Commander letőltése](https://www.ghisler.com/download.htm)
+
+>> Ha sikeresen letöltöttük a total commandert, akkor bele navigáljuk magunkat a megfelelő helyre, majd klónozzuk le a projektet 
+```
+https://github.com/megyerimark/vizsgaremek_TreCorte
+
+```
+
+Telepítsük az npm függőségeket. 
+
+```
+npm install
+
+```
+
+https://mail.google.com/mail/u/0/#sent/KtbxLvGzdMvrCKwGDNsVwfVBXQgVvVLLKL?projector=1&messagePartId=0.1
 
 
 
