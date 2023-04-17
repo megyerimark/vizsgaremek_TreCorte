@@ -15,5 +15,11 @@ a vendégek számára a zökkenőmentes adminisztrációs munkákat.
 
 * Angular
 * Laravel
-**  MYSQL szerver  **
+* MYSQL szerver  
 
+
+```
+
+npm install
+
+```
