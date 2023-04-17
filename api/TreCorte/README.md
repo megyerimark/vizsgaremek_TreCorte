@@ -18,7 +18,4 @@ a vendégek számára a zökkenőmentes adminisztrációs munkákat.
 * MYSQL szerver  
 
 ## A projekt kezdéséhez szükségünk lesz magára a projektre itt elérhető:
-
-```
 [TreCorte](https://github.com/megyerimark/vizsgaremek_TreCorte). 
-```
