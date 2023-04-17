@@ -1,7 +1,12 @@
 
 
 # Vizsgaremek
+# Projekt neve :TreCorte
+# készítette : Megyeri Márk Máté , Bognár Dávid , Orosz Levente János
+# Verzió : 1.0.
 
+# A projektről 
 
-## Learning Laravel
+* Egy étteremláncnak a nyilvántartás készítése, mely biztosítja az étterem és
+a vendégek számára a zökkenőmentes adminisztrációs munkákat.
 
