@@ -25,6 +25,15 @@ A projekt futtatásához szükség lesz a NodeJS-re, mivel használnunk kell az 
 * npm
 ```
 https://nodejs.org/en/
-npm install npm@latest -g
-
 ```
+```
+npm install npm@latest -g
+```
+
+Szükségünk lesz egy github fiókra , hogy le tudjuk klónozni vagy tölteni a .zip filet.
+*git letöltése 
+```
+https://git-scm.com/downloads
+```
+
+
