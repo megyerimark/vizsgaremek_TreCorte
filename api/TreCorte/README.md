@@ -19,4 +19,6 @@ a vendégek számára a zökkenőmentes adminisztrációs munkákat.
 
 ## A projekt kezdéséhez szükségünk lesz magára a projektre itt elérhető:
 
-[GitHub Pages](https://github.com/megyerimark/vizsgaremek_TreCorte).
+```
+[TreCorte](https://github.com/megyerimark/vizsgaremek_TreCorte). 
+```
