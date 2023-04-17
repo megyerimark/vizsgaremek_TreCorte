@@ -17,7 +17,7 @@ a vendégek számára a zökkenőmentes adminisztrációs munkákat.
 * Laravel
 * MYSQL szerver  
 
-asd
+## A projekt kezdéséhez szükségünk lesz magára a projektre itt elérhető:
 ```
- use npm install
+https://github.com/megyerimark/vizsgaremek_TreCorte
 ```
