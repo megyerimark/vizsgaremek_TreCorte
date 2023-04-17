@@ -55,7 +55,6 @@ npm install
 
 ```
 
-https://docs.google.com/document/d/1aMxy3naO2d3JHgLXE50FLX0P28Z9g1Ev3NpKFfmGiCg/edit
 ```
 
 
