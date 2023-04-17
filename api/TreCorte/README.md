@@ -17,9 +17,7 @@ a vendégek számára a zökkenőmentes adminisztrációs munkákat.
 * Laravel
 * MYSQL szerver  
 
-
+asd
 ```
-
-npm install
-
+ use npm install
 ```
