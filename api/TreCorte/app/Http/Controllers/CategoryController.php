@@ -41,24 +41,23 @@ class CategoryController extends BaseController
 
 
         ]);
+        return $this->sendResponse( [], "Sikeres felvétel");
 
         }
 
-    public function update(Request $request, $id)
+    public function update(Request $request,  string $id)
     {
-       $input = $request->all();
-       $validator = Validator::make( $input , [
-        "name"=>"required",
-        "description" =>"required"
-
-       ]);
-       if ($validator->fails() ){
-        return $this->sendError( $validator->errors() );
-     }
-     $category = Category::find($id);
-     $category->update($request->all());
-     return $this->sendResponse(  new CategoryResource( $category ), "Frissítve");
-
+        $input = $request->all();
+        $validator = Validator::make( $input , [
+            "name" => "required",
+            "description" => "required",
+        ]);
+        if ($validator->fails() ){
+         return $this->sendError( $validator->errors() );
+      }
+      $cat = Category::find($id);
+      $cat->update($request->all());
+      return $this->sendResponse( [], "Frissítve");
 
 
 }

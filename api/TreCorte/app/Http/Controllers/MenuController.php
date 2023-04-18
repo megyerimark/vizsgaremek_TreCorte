@@ -40,17 +40,24 @@ class MenuController extends BaseController
             return $this->sendResponse(  new MenuResource( $menu ), "Sikeres felvétel");
         }
             $name = $request->file("image")->getClientOriginalName();
-
-            $path = $request->file('image')->storeAs('public/images/');
+            $path = $request->file('image')->storeAs('public/images',$name );
             $input["image"] = $name;
-            $input= Menu::create($input);
+            $input= Menu::create(
+                // "name"=>$request->name,
+                // "description"=>$request->description,
+                // "category_id"=>$request->category_id,
+                // "price"=>$request->price,
+                // "image"=> $name
+                $input
+            );
+            return $this->sendResponse(  [], "Sikeres felvétel");
 
 
     }
 
 
 
-    public function update(Request $request,  $id)
+    public function update(Request $request, string  $id)
     {
 
         $input = $request->all();
@@ -58,6 +65,7 @@ class MenuController extends BaseController
          "name"=>"required",
          "description" =>"required",
          "price"=>'required',
+         "category_id" =>"required",
         //  "image"=>'required'
 
         ]);

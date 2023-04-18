@@ -47,7 +47,7 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
 
    //admins
 
-   Route::get("/users", [UserController::class, "index"]);
+//    Route::get("/users", [UserController::class, "index"]);
     });
 
 
