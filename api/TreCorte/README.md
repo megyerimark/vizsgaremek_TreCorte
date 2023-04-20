@@ -2,7 +2,7 @@
 
 # Vizsgaremek
 # Projekt neve :TreCorte
-# Készítette : Megyeri Márk Máté , Bognár Dávid , Orosz Levente János
+# Készítette : Megyeri Márk Máté 
 # Verzió : 1.0.
 
 # A projektről 
@@ -54,7 +54,16 @@ Telepítsük az npm függőségeket.
 npm install
 
 ```
+>> Ha sikeresen leklónuztuk a projektet ügyeljünk arra, hogy a .env.example mellett legyen .env kiterjesztésű file is , mivel így fogod tudni elérni at adatbázisod.
+> Ha megvan a .env file, akkor meghet a követkerő parancs:
+```
+composer install 
+```
+>>Ez a parancs telepíti a laravel alap funkcióit ami nélkül az egész projekt el sem fog indulni.
 
+>Szükségünk lesz egy XAMPP-ra mely letőlthető az alábbi linkre kattintva 
+```
+[XAMPP letőltése](https://www.apachefriends.org/download.html)
 ```
 
 
