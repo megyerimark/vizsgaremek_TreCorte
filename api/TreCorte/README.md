@@ -90,12 +90,12 @@ https://insomnia.rest/download
 
 - [x] Projekt elnevezése
 - [x] Weblap elkészítése
-- [] Mobilos Applikáció elkészítése
+- [ ] Mobilos Applikáció elkészítése
   - [x] REST API kommunikáció az adatbázissal 
-  - [ ] Autentikáció hozzáadása
+  - [x] Autentikáció hozzáadása
   - [ ] Funkciók bővítése
  - [ ] Nyelvek hozzáadása 
-    - [] Angol
+    - [ ] Angol
     - [x] Magyar
    
 
